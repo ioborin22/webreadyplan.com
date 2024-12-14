@@ -902,14 +902,10 @@
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required placeholder="Enter your email" />
 
-    <!-- reCAPTCHA -->
-    <button
-        type="submit"
-        class="g-recaptcha submit-btn"
-        data-sitekey="6Lc635sqAAAAAGAUqMe-InTndczMQeQFIrVdHDVZ"
-        data-callback="onSubmit"
-        data-action="submit"
-    >
+    <!-- Hidden field for reCAPTCHA token -->
+    <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" />
+
+    <button type="submit" class="submit-btn">
         <span class="btn-text">Launch My Website</span>
         <span class="spinner" style="display: none;"></span>
     </button>
@@ -926,66 +922,57 @@
     </div>
 
 <script>
-document.getElementById('orderForm').addEventListener('submit', async (event) => {
+  document.getElementById("orderForm").addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const submitButton = document.querySelector('.submit-btn');
-    const btnText = submitButton.querySelector('.btn-text');
-    const spinner = submitButton.querySelector('.spinner');
+    const submitButton = document.querySelector(".submit-btn");
+    const btnText = submitButton.querySelector(".btn-text");
+    const spinner = submitButton.querySelector(".spinner");
 
-    btnText.style.display = 'none';
-    spinner.style.display = 'inline-block';
+    btnText.style.display = "none";
+    spinner.style.display = "inline-block";
     submitButton.disabled = true;
+
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
 
     const formData = new FormData(event.target);
 
-    // reCAPTCHA verification
-    const recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-        alert('Please verify you are not a robot.');
-        btnText.style.display = 'inline-block';
-        spinner.style.display = 'none';
-        submitButton.disabled = false;
-        return;
-    }
-
-    // Add reCAPTCHA token to FormData
-    formData.append('g-recaptcha-response', recaptchaResponse);
-
     try {
-        const response = await fetch('/submit-web-ready-form', {
-            method: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-            },
-            body: formData,
-        });
+      // Generate reCAPTCHA token
+      const recaptchaToken = await grecaptcha.execute("6Lc635sqAAAAAIvvC1ljuK3NF8XXJ-vH_1QRnKpe", { action: "submit" });
+      formData.append("g-recaptcha-response", recaptchaToken);
 
-        if (!response.ok) {
-            throw new Error('Server error: ' + response.statusText);
-        }
+      const data = Object.fromEntries(formData.entries());
 
-        const result = await response.json();
+      const response = await fetch("/submit-web-ready-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-TOKEN": csrfToken,
+        },
+        body: JSON.stringify(data),
+      });
 
-        if (result.success) {
-            const modalContent = document.getElementById('modal-content');
-            modalContent.innerHTML = `
-                <h2>Thank You!</h2>
-                <p>Your request has been successfully submitted. We will contact you shortly!</p>
-            `;
-            grecaptcha.reset(); // Reset reCAPTCHA after successful submission
-        } else {
-            alert('Failed to send your message. Please try again later.');
-        }
+      const result = await response.json();
+
+      if (result.success) {
+        const modalContent = document.getElementById("modal-content");
+        modalContent.innerHTML = `
+          <h2>Thank You!</h2>
+          <p>Your request has been successfully submitted. We will contact you shortly!</p>
+        `;
+      } else {
+        throw new Error(result.message || "Submission failed.");
+      }
     } catch (error) {
-        console.error('Error:', error);
-        alert('An error occurred. Please check your network connection.');
+      console.error("Error:", error.message);
+      alert(error.message || "An error occurred. Please try again.");
     } finally {
-        btnText.style.display = 'inline-block';
-        spinner.style.display = 'none';
-        submitButton.disabled = false;
+      btnText.style.display = "inline-block";
+      spinner.style.display = "none";
+      submitButton.disabled = false;
     }
-});
+  });
 </script>
   </body>
 </html>
