@@ -27,7 +27,7 @@
       for the USA
     </title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <meta
       name="description"
       content="Get your website, business email, and hosting in one complete package. Perfect for small businesses in the USA. Affordable, hassle-free, and ready in just 3 days!"
@@ -912,8 +912,8 @@
 
     <div class="legal-info">
       <p>
-        The “Web-Ready Plan” is a unique offering by GETWAB INC., a trusted software development company based in the USA. To better serve our clients, we’ve created this dedicated platform, <a href="https://www.empstateweb.com" target="_blank">www.empstateweb.com</a>, to showcase and streamline this service. All contracts and legal responsibilities are handled by
-        <a href="https://www.getwabinc.com" target="_blank">www.getwabinc.com</a>
+        The “Web-Ready Plan” is a unique offering by GETWAB INC., a trusted software development company based in the USA. All official inquiries and communication regarding contracts and legal responsibilities should be directed through the company's website at
+        <a href="https://www.getwabinc.com" target="_blank">www.getwabinc.com</a>.
       </p>
     </div>
 
