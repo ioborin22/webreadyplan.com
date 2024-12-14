@@ -474,9 +474,35 @@
       .legal-info a:hover {
         text-decoration: underline;
       }
+
+.promo-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #bb133e;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 9999;
+    cursor: pointer;
+}
+
+.promo-bar.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
     </style>
   </head>
   <body>
+    <div id="promoBar" class="promo-bar" onclick="scrollToOrderButton()">
+        <span>Web-Ready Plan: Website + Email + Hosting for $88/year!</span>
+    </div>
     <div class="container">
       <div
         class="badge"
@@ -974,6 +1000,28 @@
         submitButton.disabled = false;
     }
 });
+
+
+window.addEventListener('scroll', () => {
+    const promoBar = document.getElementById('promoBar');
+
+    if (window.scrollY > 200) {
+        promoBar.classList.add('visible');
+    } else {
+        promoBar.classList.remove('visible');
+    }
+});
+
+// Прокрутка к кнопке при нажатии на полоску
+function scrollToOrderButton() {
+    const orderButton = document.querySelector('.order-btn');
+    if (orderButton) {
+        orderButton.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center'
+        });
+    }
+}
 </script>
   </body>
 </html>
