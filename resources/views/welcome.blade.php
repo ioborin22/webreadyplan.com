@@ -26,6 +26,7 @@
       Web-Ready Plan: Website + Business Email + Hosting - All-In-One Solution
       for the USA
     </title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta
       name="description"
       content="Get your website, business email, and hosting in one complete package. Perfect for small businesses in the USA. Affordable, hassle-free, and ready in just 3 days!"
@@ -891,18 +892,19 @@
         <span class="text-line2-order">Web-Ready</span><br />
         <span class="text-line3-order">Plan</span>
       </h2>
-      <form id="orderForm" action="/submit-web-ready-form" method="post">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Enter your name" />
-        <label for="phone">Your Phone</label>
-        <input type="tel" id="phone" name="phone" required placeholder="Enter your phone" />
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="Enter your email" />
-        <button type="submit" class="submit-btn">
+      <form id="orderForm" action="/submit-web-ready-form" method="POST">
+    @csrf
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your name" />
+    <label for="phone">Your Phone</label>
+    <input type="tel" id="phone" name="phone" required placeholder="Enter your phone" />
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email" />
+    <button type="submit" class="submit-btn">
         <span class="btn-text">Launch My Website</span>
         <span class="spinner" style="display: none;"></span>
-        </button>
-      </form>
+    </button>
+</form>
     </div>
   </div>
 </div>
@@ -916,48 +918,64 @@
 
 <script>
   document.getElementById('orderForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
+    event.preventDefault(); // Prevent default form submission
 
     const submitButton = document.querySelector('.submit-btn');
     const btnText = submitButton.querySelector('.btn-text');
     const spinner = submitButton.querySelector('.spinner');
 
+    // Show spinner and disable button
     btnText.style.display = 'none';
     spinner.style.display = 'inline-block';
     submitButton.disabled = true;
 
+    // Get CSRF token from the meta tag
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    // Collect form data
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+    const data = Object.fromEntries(formData.entries()); // Convert to plain object
 
     try {
-      const response = await fetch('/submit-web-ready-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
+        // Send form data to the server
+        const response = await fetch('/submit-web-ready-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken, // Add CSRF token to request headers
+            },
+            body: JSON.stringify(data), // Convert data to JSON string
+        });
 
-      const result = await response.json();
+        // Check if the response is not OK
+        if (!response.ok) {
+            throw new Error('Server error: ' + response.statusText);
+        }
 
-      if (result.success) {
-        const modalContent = document.getElementById('modal-content');
-        modalContent.innerHTML = `
-          <h2>Thank You!</h2>
-          <p>Your request has been successfully submitted. We will contact you shortly!</p>
-        `;
-      } else {
-        alert('Failed to send your message. Please try again later.');
-      }
+        const result = await response.json(); // Parse JSON response
+
+        // Handle success response
+        if (result.success) {
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <h2>Thank You!</h2>
+                <p>Your request has been successfully submitted. We will contact you shortly!</p>
+            `;
+        } else {
+            // Handle server failure
+            alert('Failed to send your message. Please try again later.');
+        }
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred. Please check your network connection.');
+        // Handle network or server errors
+        console.error('Error:', error);
+        alert('An error occurred. Please check your network connection.');
     } finally {
-      btnText.style.display = 'inline-block';
-      spinner.style.display = 'none';
-      submitButton.disabled = false;
+        // Re-enable the button and hide spinner
+        btnText.style.display = 'inline-block';
+        spinner.style.display = 'none';
+        submitButton.disabled = false;
     }
-  });
+});
 </script>
   </body>
 </html>
