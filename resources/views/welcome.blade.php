@@ -27,6 +27,7 @@
       for the USA
     </title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <meta
       name="description"
       content="Get your website, business email, and hosting in one complete package. Perfect for small businesses in the USA. Affordable, hassle-free, and ready in just 3 days!"
@@ -892,7 +893,7 @@
         <span class="text-line2-order">Web-Ready</span><br />
         <span class="text-line3-order">Plan</span>
       </h2>
-      <form id="orderForm" action="/submit-web-ready-form" method="POST">
+<form id="orderForm" action="/submit-web-ready-form" method="POST">
     @csrf
     <label for="name">Name</label>
     <input type="text" id="name" name="name" required placeholder="Enter your name" />
@@ -900,6 +901,10 @@
     <input type="tel" id="phone" name="phone" required placeholder="Enter your phone" />
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required placeholder="Enter your email" />
+
+    <!-- reCAPTCHA widget -->
+    <div class="g-recaptcha" data-sitekey="6Lc635sqAAAAAGAUqMe-InTndczMQeQFIrVdHDVZ"></div>
+
     <button type="submit" class="submit-btn">
         <span class="btn-text">Launch My Website</span>
         <span class="spinner" style="display: none;"></span>
