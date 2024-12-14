@@ -926,61 +926,61 @@
     </div>
 
 <script>
-
-  document.getElementById('orderForm').addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
+document.getElementById('orderForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
 
     const submitButton = document.querySelector('.submit-btn');
     const btnText = submitButton.querySelector('.btn-text');
     const spinner = submitButton.querySelector('.spinner');
 
-    // Show spinner and disable button
     btnText.style.display = 'none';
     spinner.style.display = 'inline-block';
     submitButton.disabled = true;
 
-    // Get CSRF token from the meta tag
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-    // Collect form data
     const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries()); // Convert to plain object
+
+    // reCAPTCHA verification
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+        alert('Please verify you are not a robot.');
+        btnText.style.display = 'inline-block';
+        spinner.style.display = 'none';
+        submitButton.disabled = false;
+        return;
+    }
+
+    // Add reCAPTCHA token to FormData
+    formData.append('g-recaptcha-response', recaptchaResponse);
 
     try {
-        // Send form data to the server
         const response = await fetch('/submit-web-ready-form', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': csrfToken, // Add CSRF token to request headers
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
             },
-            body: JSON.stringify(data), // Convert data to JSON string
+            body: formData,
         });
 
-        // Check if the response is not OK
         if (!response.ok) {
             throw new Error('Server error: ' + response.statusText);
         }
 
-        const result = await response.json(); // Parse JSON response
+        const result = await response.json();
 
-        // Handle success response
         if (result.success) {
             const modalContent = document.getElementById('modal-content');
             modalContent.innerHTML = `
                 <h2>Thank You!</h2>
                 <p>Your request has been successfully submitted. We will contact you shortly!</p>
             `;
+            grecaptcha.reset(); // Reset reCAPTCHA after successful submission
         } else {
-            // Handle server failure
             alert('Failed to send your message. Please try again later.');
         }
     } catch (error) {
-        // Handle network or server errors
         console.error('Error:', error);
         alert('An error occurred. Please check your network connection.');
     } finally {
-        // Re-enable the button and hide spinner
         btnText.style.display = 'inline-block';
         spinner.style.display = 'none';
         submitButton.disabled = false;
