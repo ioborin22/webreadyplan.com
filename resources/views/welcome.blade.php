@@ -6,22 +6,22 @@
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="../assets/images/favicon_wr/apple-touch-icon.png"
+      href="{{asset('favicon_wr/apple-touch-icon.png')}}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="../assets/images/favicon_wr/favicon-32x32.png"
+      href="{{asset('favicon_wr/favicon-32x32.png')}}"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="../assets/images/favicon_wr/favicon-16x16.png"
+      href="{{asset('favicon_wr/favicon-16x16.png')}}"
     />
-    <meta property="og:image" content="assets/images/templates/wrp.webp"/>
-    <meta name="twitter:image" content="assets/images/templates/wrp.webp"/>
+    <meta property="og:image" content="{{asset('templates/wrp.webp')}}"/>
+    <meta name="twitter:image" content="{{asset('templates/wrp.webp')}}"/>
     <title>
       Web-Ready Plan: Website + Business Email + Hosting - All-In-One Solution
       for the USA
@@ -593,163 +593,163 @@
         <div class="carousel">
           <div class="carousel-track">
             <img
-              src="./assets/images/templates/jobboard2.webp"
+              src="{{asset('templates/jobboard2.webp')}}"
               alt="Template 1"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/resta.webp"
+              src="{{asset('templates/resta.webp')}}"
               alt="Template 2"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/musico.webp"
+              src="{{asset('templates/musico.webp')}}"
               alt="Template 3"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/activitar.webp"
+              src="{{asset('templates/activitar.webp')}}"
               alt="Template 4"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/burger.webp"
+              src="{{asset('templates/burger.webp')}}"
               alt="Template 5"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/pillowmart.webp"
+              src="{{asset('templates/pillowmart.webp')}}"
               alt="Template 6"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/eventcon.webp"
+              src="{{asset('templates/eventcon.webp')}}"
               alt="Template 7"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/unearth.webp"
+              src="{{asset('templates/unearth.webp')}}"
               alt="Template 8"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/sona.webp"
+              src="{{asset('templates/sona.webp')}}"
               alt="Template 9"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/wiser.webp"
+              src="{{asset('templates/wiser.webp')}}"
               alt="Template 10"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/haze.webp"
+              src="{{asset('templates/haze.webp')}}"
               alt="Template 11"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/anipat.webp"
+              src="{{asset('templates/anipat.webp')}}"
               alt="Template 12"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/homebuilder.webp"
+              src="{{asset('templates/homebuilder.webp')}}"
               alt="Template 13"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/manup.webp"
+              src="{{asset('templates/manup.webp')}}"
               alt="Template 14"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/logis.webp"
+              src="{{asset('templates/logis.webp')}}"
               alt="Template 15"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/aznews.webp"
+              src="{{asset('templates/aznews.webp')}}"
               alt="Template 16"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/elit.webp"
+              src="{{asset('templates/elit.webp')}}"
               alt="Template 17"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/invits.webp"
+              src="{{asset('templates/invits.webp')}}"
               alt="Template 18"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/cleaningcompany.webp"
+              src="{{asset('templates/cleaningcompany.webp')}}"
               alt="Template 19"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/foodeiblog.webp"
+              src="{{asset('templates/foodeiblog.webp')}}"
               alt="Template 20"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/cargo.webp"
+              src="{{asset('templates/cargo.webp')}}"
               alt="Template 21"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/stamina.webp"
+              src="{{asset('templates/stamina.webp')}}"
               alt="Template 22"
               loading="lazy"
             />
 
             <img
-              src="./assets/images/templates/marga.webp"
+              src="{{asset('templates/marga.webp')}}"
               alt="Template 23"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/fundraiser.webp"
+              src="{{asset('templates/fundraiser.webp')}}"
               alt="Template 24"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/harbor.webp"
+              src="{{asset('templates/harbor.webp')}}"
               alt="Template 25"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/legalcare.webp"
+              src="{{asset('templates/legalcare.webp')}}"
               alt="Template 26"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/nissa.webp"
+              src="{{asset('templates/nissa.webp')}}"
               alt="Template 27"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/carrent.webp"
+              src="{{asset('templates/carrent.webp')}}"
               alt="Template 28"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/xgym.webp"
+              src="{{asset('templates/xgym.webp')}}"
               alt="Template 29"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/violet.webp"
+              src="{{asset('templates/violet.webp')}}"
               alt="Template 30"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/thequest.webp"
+              src="{{asset('templates/thequest.webp')}}"
               alt="Template 31"
               loading="lazy"
             />
             <img
-              src="./assets/images/templates/mondy.webp"
+              src="{{asset('templates/mondy.webp')}}"
               alt="Template 32"
               loading="lazy"
             />
