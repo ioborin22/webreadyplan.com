@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class MailController extends Controller
 {
@@ -32,7 +33,7 @@ class MailController extends Controller
 
         return response()->json(['success' => true], 200);
     } catch (\Exception $e) {
-        \Log::error('Error sending email: ' . $e->getMessage());
+        Log::error('Error sending email: ' . $e->getMessage());
         return response()->json(['success' => false, 'error' => $e->getMessage()], 500);
     }
 }
