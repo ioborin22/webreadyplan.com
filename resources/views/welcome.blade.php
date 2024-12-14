@@ -902,10 +902,14 @@
     <label for="email">Email</label>
     <input type="email" id="email" name="email" required placeholder="Enter your email" />
 
-    <!-- reCAPTCHA widget -->
-    <div class="g-recaptcha" data-sitekey="6Lc635sqAAAAAGAUqMe-InTndczMQeQFIrVdHDVZ"></div>
-
-    <button type="submit" class="submit-btn">
+    <!-- reCAPTCHA -->
+    <button
+        type="submit"
+        class="g-recaptcha submit-btn"
+        data-sitekey="6Lc635sqAAAAAGAUqMe-InTndczMQeQFIrVdHDVZ"
+        data-callback="onSubmit"
+        data-action="submit"
+    >
         <span class="btn-text">Launch My Website</span>
         <span class="spinner" style="display: none;"></span>
     </button>
@@ -922,6 +926,10 @@
     </div>
 
 <script>
+    function onSubmit(token) {
+    document.getElementById('orderForm').submit();
+  }
+
   document.getElementById('orderForm').addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent default form submission
 
