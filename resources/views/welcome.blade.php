@@ -802,7 +802,7 @@
           </li>
           <li>5 professional email accounts (e.g., info@yourdomain.com).</li>
           <li>
-            Complete setup and hosting support with 100% uptime guarantee.
+            Complete setup and hosting support with a 99.9% uptime guarantee.
           </li>
           <li>
             Basic SEO optimization for correct functionality and visibility.
