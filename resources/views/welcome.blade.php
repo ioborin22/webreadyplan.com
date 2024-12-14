@@ -497,12 +497,47 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+.scroll-to-top-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #bb133e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.scroll-to-top-btn:hover {
+  background-color: #8b0f30;
+}
+
+.scroll-to-top-btn.show {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-to-top-btn.hide {
+  opacity: 0;
+  transform: translateY(20px);
+}
     </style>
   </head>
   <body>
     <div id="promoBar" class="promo-bar" onclick="scrollToOrderButton()">
         <span>Web-Ready Plan: Website + Email + Hosting for $88/year!</span>
     </div>
+    <button id="scrollToTopBtn" class="scroll-to-top-btn">↑ Top</button>
     <div class="container">
       <div
         class="badge"
@@ -1012,7 +1047,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Прокрутка к кнопке при нажатии на полоску
+
 function scrollToOrderButton() {
     const orderButton = document.querySelector('.order-btn');
     if (orderButton) {
@@ -1022,6 +1057,27 @@ function scrollToOrderButton() {
         });
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollToTopBtn.classList.add('show');
+      scrollToTopBtn.classList.remove('hide');
+    } else {
+      scrollToTopBtn.classList.add('hide');
+      scrollToTopBtn.classList.remove('show');
+    }
+  });
+
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+});
 </script>
   </body>
 </html>
