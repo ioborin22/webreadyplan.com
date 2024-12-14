@@ -800,7 +800,7 @@
             A fully functional website on your domain with 4 pages (Home, About
             Us, Services, Contact).
           </li>
-          <li>5 professional email accounts.</li>
+          <li>5 professional email accounts (e.g., info@yourdomain.com).</li>
           <li>
             Complete setup and hosting support with 100% uptime guarantee.
           </li>
