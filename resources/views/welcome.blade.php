@@ -926,10 +926,6 @@
     </div>
 
 <script>
-    function onSubmit(token) {
-        console.log("CAPTCHA passed successfully!");
-    }
-
     document.getElementById('orderForm').addEventListener('submit', async (event) => {
         event.preventDefault();
 
@@ -943,9 +939,15 @@
 
         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const formData = new FormData(event.target);
-        const data = Object.fromEntries(formData.entries());
 
         try {
+
+            const token = await grecaptcha.execute('6Lc635sqAAAAAGAUqMe-InTndczMQeQFIrVdHDVZ', { action: 'submit' });
+
+            formData.append('g-recaptcha-response', token);
+
+            const data = Object.fromEntries(formData.entries());
+
             const response = await fetch('/submit-web-ready-form', {
                 method: 'POST',
                 headers: {
