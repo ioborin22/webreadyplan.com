@@ -507,18 +507,23 @@
   color: #fff;
   border: none;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 18px;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   z-index: 1000;
+
+
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+
+
+  padding: 0;
   line-height: 1;
 }
 
