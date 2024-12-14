@@ -22,12 +22,9 @@
     />
     <meta property="og:image" content="{{asset('templates/wrp.webp')}}"/>
     <meta name="twitter:image" content="{{asset('templates/wrp.webp')}}"/>
-    <title>
-      Web-Ready Plan: Website + Business Email + Hosting - All-In-One Solution
-      for the USA
-    </title>
+    <title>Web-Ready Plan: Website + Email + Hosting for $88/year</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="canonical" href="https://webreadyplan.com/">
     <meta
       name="description"
       content="Get your website, business email, and hosting in one complete package. Perfect for small businesses in the USA. Affordable, hassle-free, and ready in just 3 days!"
@@ -514,13 +511,13 @@
         </div>
       </div>
 
-      <h1>
-        Start Your Business Online in Just 3 Days:<br />
+      <h1>Web-Ready Plan: Website, Email & Hosting All-In-One Solution</h1>
+        <h2>Start Your Business Online in Just 3 Days:<br />
         Website + 5 Business Emails<br />
         for $538 one-time payment<br />
         + $88 annual renewal!<br />
-        (Taxes included)
-      </h1>
+        (Taxes included)</h2>
+
 
       <div class="table-container">
         <table>
