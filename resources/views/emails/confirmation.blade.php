@@ -10,16 +10,22 @@
 
     <p>Thank you for reaching out to inquire about our Web-Ready Plan. We are excited about the opportunity to assist you in getting your business online quickly and professionally.</p>
 
-    <p>To get started, we kindly ask for the following information about your company:</p>
-    <ol>
-        <li>The name of your company.</li>
-        <li>A brief description of your business and its area of expertise.</li>
-        <li>Your preferred contact details.</li>
-    </ol>
+    <p>To proceed with your request, we kindly ask you to provide the following information:</p>
 
-    <p>If you have any questions or need further assistance, please don’t hesitate to reach out to us by replying to this email or contacting us directly via phone.</p>
+    <div style="background-color: #f9f9f9; border-left: 5px solid #3c3b6e; padding: 15px; margin: 20px 0;">
+        <strong>1. The name of your company:</strong><br>
+        Please share the official name of your company.<br><br>
 
-    <p>We look forward to working with you and helping you achieve your online presence!</p>
+        <strong>2. A brief description of your business:</strong><br>
+        Tell us about your company’s services and area of expertise.<br><br>
+
+        <strong>3. Your contact details:</strong><br>
+        Provide the best contact information (e.g., phone number, email) to reach you.
+    </div>
+
+    <p>If you have any questions or need further assistance, please don’t hesitate to reply to this email or call us directly. We are here to help!</p>
+
+    <p>We look forward to working with you and helping you establish your online presence!</p>
 
     <br>
 
