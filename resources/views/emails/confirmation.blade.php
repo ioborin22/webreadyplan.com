@@ -31,8 +31,10 @@
 
     <p>Best regards,</p>
     <p>
+        <img src="https://www.getwabinc.com/images/me.webp" alt="Ilia Oborin" style="width: 50px; height: 50px; border-radius: 50%;"><br>
         Ilia Oborin<br>
-        Founder, GETWAB INC.<br>
+        CEO & Founder<br>
+        GETWAB INC.<br>
         <strong>Email:</strong> <a href="mailto:services@webreadyplan.com">services@webreadyplan.com</a><br>
         <strong>Phone:</strong> +1 (941) 402-0472<br>
         <strong>Website:</strong> <a href="https://webreadyplan.com" target="_blank">webreadyplan.com</a>
