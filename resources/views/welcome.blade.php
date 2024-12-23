@@ -894,6 +894,7 @@
 
                     // Handle success response
                     if (result.success) {
+                        gtag('event', 'conversion', { 'send_to': 'AW-10967820321/-pRNCMPv7voZEKHQ7u0o' });
                         const modalContent = document.getElementById('modal-content');
                         modalContent.innerHTML = `
                 <h2>Thank You!</h2>
