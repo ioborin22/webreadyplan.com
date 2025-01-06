@@ -673,6 +673,21 @@
         </div>
 
         <div class="block">
+            <h2>Examples of How Your Business Emails Could Look</h2>
+            <div class="carousel" style="height: 50px;">
+                <div class="carousel-track" style="animation: scrollCarousel 20s linear infinite;">
+                    <span class="email">yourname@yourcompany.com</span>
+                    <span class="email">employee.name@yourcompany.com</span>
+                    <span class="email">info@yourcompany.com</span>
+                    <span class="email">support@yourcompany.com</span>
+                    <span class="email">sales@yourcompany.com</span>
+                    <span class="email">contact@yourcompany.com</span>
+                </div>
+            </div>
+            <p class="note">You can customize and choose the email names during setup.</p>
+        </div>
+
+        <div class="block">
             <h2>Here’s How Your Website Could Look</h2>
             <div class="carousel">
                 <div class="carousel-track">
@@ -711,22 +726,6 @@
                     <img src="{{ asset('templates/mondy.webp') }}" alt="Template 32" loading="lazy" />
                 </div>
             </div>
-        </div>
-
-        <div class="block">
-            <h2>Examples of How Your Business Emails Could Look</h2>
-            <div class="carousel" style="height: 50px;">
-                <div class="carousel-track" style="animation: scrollCarousel 20s linear infinite;">
-                    <span class="email">yourname@yourcompany.com</span>
-                    <span class="email">employee.name@yourcompany.com</span>
-                    <span class="email">info@yourcompany.com</span>
-                    <span class="email">support@yourcompany.com</span>
-                    <span class="email">sales@yourcompany.com</span>
-                    <span class="email">contact@yourcompany.com</span>
-                </div>
-            </div>
-            <p class="note">You can customize and choose the email names during setup.</p>
-
         </div>
 
         <div class="block">
