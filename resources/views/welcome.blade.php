@@ -14,16 +14,18 @@
     <link rel="canonical" href="https://webreadyplan.com/">
     <meta name="description"
         content="Get your website, business email, and hosting in one complete package. Perfect for small businesses in the USA. Affordable, hassle-free, and ready in just 3 days!" />
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10967820321">
-        </script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10967820321"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-            gtag('config', 'AW-10967820321');
-        </script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-10967820321');
+    </script>
     <script>
         // FAQ
         document.addEventListener('DOMContentLoaded', () => {
@@ -536,6 +538,26 @@
             opacity: 0;
             transform: translateY(20px);
         }
+
+        /* carousel-email */
+
+        .email {
+            font-size: 22px;
+            font-weight: bold;
+            color: #002147;
+            background: linear-gradient(90deg, #e8f1ff, #ffffff);
+            padding: 15px 25px;
+            border-radius: 8px;
+            border: 2px solid #002147;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #666;
+            margin-top: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -692,6 +714,22 @@
         </div>
 
         <div class="block">
+            <h2>Examples of How Your Business Emails Could Look</h2>
+            <div class="carousel" style="height: 50px;">
+                <div class="carousel-track" style="animation: scrollCarousel 20s linear infinite;">
+                    <span class="email">yourname@yourcompany.com</span>
+                    <span class="email">employee.name@yourcompany.com</span>
+                    <span class="email">info@yourcompany.com</span>
+                    <span class="email">support@yourcompany.com</span>
+                    <span class="email">sales@yourcompany.com</span>
+                    <span class="email">contact@yourcompany.com</span>
+                </div>
+            </div>
+            <p class="note">You can customize and choose the email names during setup.</p>
+
+        </div>
+
+        <div class="block">
             <h2>Who Is This Plan For?</h2>
             <ul>
                 <li>
@@ -836,7 +874,8 @@
                         <label for="email">Email</label>
                         <input type="email" id="email" name="email" required
                             placeholder="Enter your email" />
-                        <button type="submit" class="submit-btn" onclick="gtag('event', 'conversion', { 'send_to': 'AW-10967820321/-pRNCMPv7voZEKHQ7u0o' });">
+                        <button type="submit" class="submit-btn"
+                            onclick="gtag('event', 'conversion', { 'send_to': 'AW-10967820321/-pRNCMPv7voZEKHQ7u0o' });">
                             <span class="btn-text">Launch My Website</span>
                             <span class="spinner" style="display: none;"></span>
                         </button>
@@ -847,7 +886,8 @@
 
         <div class="legal-info">
             <p>
-                The “Web-Ready Plan” is a unique offering by GETWAB INC., a trusted software development company based
+                The “Web-Ready Plan” is a unique offering by GETWAB INC., a trusted software development company
+                based
                 in the USA. All official inquiries and communication regarding contracts and legal responsibilities
                 should be directed through the company's website at
                 <a href="https://www.getwabinc.com" target="_blank">www.getwabinc.com</a>.
@@ -894,7 +934,9 @@
 
                     // Handle success response
                     if (result.success) {
-                        gtag('event', 'conversion', { 'send_to': 'AW-10967820321/-pRNCMPv7voZEKHQ7u0o' });
+                        gtag('event', 'conversion', {
+                            'send_to': 'AW-10967820321/-pRNCMPv7voZEKHQ7u0o'
+                        });
                         const modalContent = document.getElementById('modal-content');
                         modalContent.innerHTML = `
                 <h2>Thank You!</h2>
