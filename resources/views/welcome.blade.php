@@ -575,7 +575,7 @@
           border: 5px solid #002147;
           border-radius: 20px;
           box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-          background: url('https://uk.usembassy.gov/wp-content/uploads/sites/16/US_Flag_Color_72DPI_750x450.jpg')
+          background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg/2560px-Flag_of_the_United_States_%28DDD-F-416E_specifications%29.svg.png')
             no-repeat center center;
           background-size: cover;
         ">
@@ -889,7 +889,7 @@
                 based
                 in the USA. All official inquiries and communication regarding contracts and legal responsibilities
                 should be directed through the company's website at
-                <a href="https://www.getwabinc.com" target="_blank">www.getwabinc.com</a>.
+                <a href="https://www.getwab.com" target="_blank">www.getwab.com</a>.
             </p>
         </div>
 

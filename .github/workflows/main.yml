@@ -8,6 +8,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
@@ -15,9 +16,9 @@ jobs:
       - name: Sync Files
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.SERVER_IP }}
+          host: ${{ secrets.SERVER_IP_HETZNER }}
           username: 'root'
-          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_HETZNER }}
           source: "."
           target: "/home/userwww/web/webreadyplan.com/public_html"
           strip_components: 1
@@ -25,18 +26,21 @@ jobs:
       - name: Final Setup on Server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.SERVER_IP }}
+          host: ${{ secrets.SERVER_IP_HETZNER }}
           username: 'root'
-          password: ${{ secrets.SERVER_PASSWORD }}
+          key: ${{ secrets.SSH_PRIVATE_KEY_HETZNER }}
           command_timeout: 90m
           script: |
             # Remove .git and .github directories
             sudo rm -rf /home/userwww/web/webreadyplan.com/public_html/.git
             sudo rm -rf /home/userwww/web/webreadyplan.com/public_html/.github
             sudo rm -rf /home/userwww/web/webreadyplan.com/public_html/.DS_Store
+            
             # Set permissions to the web directory
-            sudo chown -R www-data:www-data /home/userwww/web/webreadyplan.com/public_html
-            sudo chmod -R 755 /home/userwww/web/webreadyplan.com/public_html
+            chmod -R 775 /home/userwww/web/webreadyplan.com/public_html/storage
+            chmod -R 775 /home/userwww/web/webreadyplan.com/public_html/bootstrap/cache
+            chown -R userwww:www-data /home/userwww/web/webreadyplan.com/public_html/storage
+            chown -R userwww:www-data /home/userwww/web/webreadyplan.com/public_html/bootstrap/cache
             # Clear and cache configurations
             cd /home/userwww/web/webreadyplan.com/public_html
             php artisan config:clear
@@ -47,4 +51,3 @@ jobs:
             # Clear and cache views
             php artisan view:clear
             php artisan view:cache
-            # composer install
